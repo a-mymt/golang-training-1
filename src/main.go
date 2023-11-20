@@ -12,7 +12,7 @@ import (
 
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		// create new linebot client
 		bot, err := linebot.New(
 			os.Getenv("LINE_BOT_CHANNEL_SECRET"),
@@ -32,7 +32,7 @@ func main() {
 			case linebot.EventTypeMessage:
 				// handle message event
 				switch message := event.Message.(type) {
-				case linebot.TextMessage:
+				case *linebot.TextMessage:
 					// reply text message
 					if _, err := bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
 						log.Fatal(err)
