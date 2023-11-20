@@ -32,7 +32,7 @@ func main() {
     case linebot.EventTypeMessage:
       // handle message event
       switch message := event.Message.(type) {
-      case linebot.TextMessage:
+      case *linebot.TextMessage:
         // reply text message
         if _, err := bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(message.Text)).Do(); err != nil {
           log.Fatal(err)
