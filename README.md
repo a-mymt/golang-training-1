@@ -20,7 +20,7 @@ docker run -itd --privileged --rm \
   golang-training
 ```
 
--- docker exec
+- docker exec
 ``` bash
 docker exec -it golang-training /bin/bash
 ```
