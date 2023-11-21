@@ -1,5 +1,5 @@
-## Dockerfile
-- build
+## Docker setup
+- docker build
 
 ``` bash
 docker build -t golang-training \
@@ -11,7 +11,7 @@ docker build -t golang-training \
   --no-cache .
 ```
 
-- run
+- docker run
 
 ``` bash
 docker run -itd --privileged --rm \
@@ -20,25 +20,30 @@ docker run -itd --privileged --rm \
   golang-training
 ```
 
-- build
+## AWS setup
+- line bot access key configure
+``` bash
+aws secretsmanager create-secret \
+--name linebot-access-key \
+--description "for access line bot" \
+--secret-string file://line-bot-access-key.json
+```
+
+- lambda build
 
 ``` bash
 sam build
 ```
 
-- deploy
+- lambda deploy
 
 ``` bash
 sam deploy --stack-name sam-app --resolve-s3
 ```
 
 ## Usage
-### requirements
-1. AWS Lambda Function URLs
-2. setting Messaging API
-### deploy to AWS Lambda
-1. zip main.go (https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/golang-package.html)
-2. upload the zip file to Lambda.
-3. set Lambda environment variables `LINE_BOT_CHANNEL_SECRET` and `LINE_BOT_CHANNEL_TOKEN`.
 
-secretmanagerで管理するのでLINEの認証設定手順追加しとく。。
+### requirements
+* Register LINE Developers and set LINE Messaging API.
+* Register AWS Account.
+* Input the line access key-value in kine-bot-access-key.json.
