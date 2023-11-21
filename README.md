@@ -20,6 +20,11 @@ docker run -itd --privileged --rm \
   golang-training
 ```
 
+-- docker exec
+``` bash
+docker exec -it golang-training /bin/bash
+```
+
 ## AWS setup
 - line bot access key configure
 ``` bash
