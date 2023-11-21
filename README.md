@@ -26,7 +26,7 @@ docker run -itd --privileged --rm \
 aws secretsmanager create-secret \
 --name linebot-access-key \
 --description "for access line bot" \
---secret-string file://line-bot-access-key.json
+--secret-string file://linebot-access-key.json
 ```
 
 - lambda build
