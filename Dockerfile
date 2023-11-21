@@ -10,6 +10,7 @@ ARG AWS_SECRET_ACCESS_KEY
 
 ENV AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY_ID}
 ENV AWS_SECRET_ACCESS_KEY ${AWS_SECRET_ACCESS_KEY}
+ENV AWS_REGION "ap-northeast-1"
 
 RUN apt update && apt upgrade -y
 RUN apt install -y git python3 python3-pip golang-go vim zip less curl unzip sudo
